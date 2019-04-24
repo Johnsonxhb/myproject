@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
@@ -37,7 +36,7 @@ service.interceptors.response.use(
         type: 'error',
         duration: 10 * 1000
       })
-      return Promise.reject('error')
+      return Promise.reject(res.message)
     } else {
       return res.obj
     }
