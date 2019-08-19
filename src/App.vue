@@ -18,6 +18,10 @@ export default {
   box-sizing: border-box;
 }
 
+li{
+  list-style: none;
+}
+
 html{
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust:100%;
