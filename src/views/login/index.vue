@@ -46,7 +46,7 @@ export default {
           { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
         pass: [
-          { min: 3, max: 5, message: '密码在 3 到 5 个字符', trigger: 'blur' },
+          { min: 3, message: '密码在 3 个以上 字符', trigger: 'blur' },
           { validator: validatePass, trigger: 'blur' }
         ]     
       }
@@ -54,16 +54,36 @@ export default {
   },
   methods: {
     login () {
+      const vm =this
       let param = {
         username: this.loginForm.username,
         password: this.loginForm.pass
       }
-      alert(param)
-      this.$router.push('/list')
       // userLogin(param).then(res => {
-      //   // 登录成功
+      //    console.log('res',res)
+      //   if(res.success){
+      //     this.$router.push('/list')
+      //   } else {
+      //     console.log('res',res)
+      //     vm.$alert(res.data);
+      //   }
 
       // })
+      this.$axios({
+        method:'post',
+        url:'/api/points/login/doLogin',
+        data:param
+      }).then(res => {
+        if(res.data.success){
+          this.$router.push('/list')
+        } else {
+          console.log('res',res)
+          this.$message({
+            message: '登录失败！',
+            type: 'warning'
+          })
+        }
+      })
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
