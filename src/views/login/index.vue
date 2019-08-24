@@ -73,13 +73,13 @@ export default {
         method:'post',
         url:'/api/points/login/doLogin',
         data:param
-      }).then(res => {
+      }).then(res  => {
         if(res.data.success){
           this.$router.push('/list')
         } else {
           console.log('res',res)
           this.$message({
-            message: '登录失败！',
+            message: res.data.data,
             type: 'warning'
           })
         }

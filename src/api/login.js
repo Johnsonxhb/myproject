@@ -7,3 +7,13 @@ export function userLogin (data) {
     params: data
   })
 }
+
+export function getPointsStatistics(data) {
+  return request({
+    url: '/api/points/mobilepoints/getPointsStatistics',
+    method: 'get',
+    params: data
+  })
+}
+
+
