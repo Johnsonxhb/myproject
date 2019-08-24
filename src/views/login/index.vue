@@ -75,7 +75,7 @@ export default {
         data:param
       }).then(res  => {
         if(res.data.success){
-          this.$router.push('/list')
+          this.$router.push('/home')
         } else {
           console.log('res',res)
           this.$message({

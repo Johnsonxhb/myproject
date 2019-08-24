@@ -25,6 +25,16 @@
           <span class="">{{item.value}}</span>
         </li>
       </ul>
+      <div class="bot">
+        <div class="btn">
+          <i class="el-icon-document"></i>
+          积分列表
+        </div>
+        <div class="btn">
+          <i class="el-icon-document"></i>
+          积分兑换列表
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -135,7 +145,7 @@ export default {
  }
 
  .card li{
-   line-height: 2.5;  
+   line-height: 3.2;  
    color: #5a5a5a;
  }
 
@@ -156,5 +166,28 @@ export default {
   background-color: #cddbf4
 }
 
+.bot {
+  width: 80%;
+  overflow: hidden;
+  margin: 1rem auto;
+}
   
+.bot .btn{
+  width: 45%;
+  padding:0.6rem 0;
+  margin-right: 4%;
+  float: left;
+  border-radius: 0.3rem;
+  text-align: center;
+  color: #fff;  
+}
+
+.bot .btn:nth-child(1){
+  background-color: #ffba16
+}
+
+.bot .btn:nth-child(2){
+  background-color: #fa6060;
+  float: right;
+}
 </style>
